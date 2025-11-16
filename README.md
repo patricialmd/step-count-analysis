@@ -99,7 +99,7 @@ Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
 
   
 ## Code
-See stepcount_analysis.ipynb for full analysis including data cleaning, feature engineering, 12 statistical hypothesis tests, and 20 interactive visualisations (time series, correlation heatmaps, 3D plots, violin plots)
+See stepCountAnalysis.ipynb for full analysis including data cleaning, feature engineering, 12 statistical hypothesis tests, and 20 interactive visualisations (time series, correlation heatmaps, 3D plots, violin plots)
 
 
 ## Practical Takeaways
