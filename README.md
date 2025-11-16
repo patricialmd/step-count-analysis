@@ -1,6 +1,7 @@
 # Step Count Analysis
 An analysis examining how weather affects daily walking habits, using my mom's step count data from Sydney, Australia.
 
+
 ## About
 My mom, in her 70s, wanted to understand what influences her daily walking patterns. I combined her Fitbit data with Sydney weather data to answer these questions: 
 * Does weather really affect her activity?
@@ -8,8 +9,11 @@ My mom, in her 70s, wanted to understand what influences her daily walking patte
 * How much does temperature and humidity matter?
 
 Dataset: 360 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+
 Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
+
 Tools: Python, pandas, scipy, plotly, seaborn 
+
 
 ## Data
 **Step count data** tracked via my mom's Fitbit and **weather data** taken from the Australian Government Bureau of Meteorology (bom.gov.au), specifically from the Sydney weather station.
@@ -41,9 +45,11 @@ Tools: Python, pandas, scipy, plotly, seaborn
 | 22 | pressure_3pm | Atmospheric pressure at 3pm [removed - 100% missing] |
 
 Initial: 393 days × 22 variables
+
 Cleaned: 360 days × 16 variables 
 * removed 6 columns with 100% missing values: evaporation, sunshine, cloud_9am, pressure_9am, cloud_3pm, pressure_3pm
 * dropped 33 rows with nulls
+
   
 ## Key Features Created
 | # | Variable | Description |
@@ -63,6 +69,7 @@ Cleaned: 360 days × 16 variables
 | 10 | week | Week number of the year (1-52) |
 
 Final dataset with added key features: 360 days × 26 variables 
+
 
 ## Key Findings
 **1. Does weather really affect activity?**
@@ -84,9 +91,11 @@ Final dataset with added key features: 360 days × 26 variables
   
 * **4. Additional finding:**
 * Activity is declining over time (ρ=-0.377, p<0.0001) - significant downward trend over 360 days
+
   
 ## Code
 See step_count_analysis.ipynb for full analysis including data cleaning, feature engineering, 12 statistical hypothesis tests, and 20 interactive visualisations (time series, correlation heatmaps, 3D plots, violin plots)
+
 
 ## Practical Takeaways
 Looking at a year of my mom's walking data revealed some surprises and gave us a clear action plan.
