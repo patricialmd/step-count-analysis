@@ -3,9 +3,9 @@ An analysis examining how weather affects daily walking habits, using my mom's s
 
 ## About
 My mom, in her 70s, wanted to understand what influences her daily walking patterns. I combined her Fitbit data with Sydney weather data to answer these questions: 
-* 1. Does weather really affect her activity?
-* 2. Are her weekends less active?
-* 3. How much does temperature and humidity matter?
+* Does weather really affect her activity?
+* Are her weekends less active?
+* How much does temperature and humidity matter?
 
 Dataset: 360 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
 Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
@@ -91,7 +91,11 @@ See step_count_analysis.ipynb for full analysis including data cleaning, feature
 ## Practical Takeaways
 Looking at a year of my mom's walking data revealed some surprises and gave us a clear action plan.
 **Fix the weekend gap**: Weekends lag by 760 steps. We're planning Saturday morning walks or weekend activities that naturally involve more movement.
+
 **Prepare for winter**: With June averaging just 4,405 steps, we're lining up indoor alternatives before winter hits: shopping centres, indoor tracks, or home walking videos.
+
 **Beat the humidity**: A 27% drop on humid days is significant. Now we monitor the forecast and have a backup plan ready when humidity climbs above 75%.
+
 **Tackle the downward trend**: The data doesn't lie: activity is declining. We need to understand why and implement strategies to reverse it before it gets worse.
+
 **Go early**: Mornings have lower humidity and better conditions. Shifting walks to earlier in the day could make a real difference.
