@@ -1,122 +1,97 @@
-# step-count-analysis
-Exploratory data analysis examining how weather affects daily walking habits, using my mom's step count data with Python and interactive visualisations.
+# Step Count Analysis
+An analysis examining how weather affects daily walking habits, using my mom's step count data from Sydney, Australia.
 
-## Project Overview
-* Analysed my mom's daily step count data over 360 days (October 2024 - October 2025) to understand how weather conditions affect her walking activity in Sydney, Australia.
-* Conducted **12 statistical hypothesis tests** with 8 showing significant results (p < 0.05).
-* Cleaned dataset from 393 to 360 rows by dropping 6 columns with 100% missing values and removing remaining null values.
-* Engineered temporal and weather features including 7-day rolling averages, comfortable weather index (15-25°C, no rain), temperature range, and rain categories.
-* Created **20 interactive Plotly visualisations** including time series dashboards, 3D scatter plots, correlation heatmaps, violin plots, and sunburst charts.
-* Identified key factors affecting her activity: weekday versus weekend (14.6% difference), seasonal variation (43% difference), and humidity impact (27% reduction on high humidity days).
+## About
+My mom, in her 70s, wanted to understand what influences her daily walking patterns. I combined her Fitbit data with Sydney weather data to answer these questions: 
+* 1. Does weather really affect her activity?
+* 2. Are her weekends less active?
+* 3. How much does temperature and humidity matter?
 
-## Motivation
-This project started from wanting to help my mom, who is in her 70s, understand her step count data and walking patterns. As she tracks her daily steps, I wanted to go beyond just looking at the numbers and help her see the bigger picture. What are the factors that actually influence her activity levels?
-The simple question that drives this analysis is: does weather really affect how much my mom walks?
-By combining her Fitbit walking data with Sydney weather data, I could explore practical questions that matter for her health and wellbeing: Are weekends actually less active? Do rainy days really keep her indoors? How much does temperature matter? What about humidity? Is she maintaining consistent activity levels over time?
-Beyond helping my mom specifically, this analysis provides actionable insights that could be valuable for anyone interested in understanding their activity patterns, or for aged care facilities monitoring resident engagement and encouraging consistent physical activity among older adults.
+Dataset: 360 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
+Tools: Python, pandas, scipy, plotly, seaborn 
 
-## Code and Resources Used
-* **Python Version:** 3.10.2
-* **Packages:** pandas, numpy, scipy, matplotlib, seaborn, plotly
-* **Development Environment:** Jupyter Notebook
-* **Data Source:** Personal fitness tracking data combined with weather data from Sydney, Australia
+## Data
+**Step count data** tracked via my mom's Fitbit and **weather data** taken from the Australian Government Bureau of Meteorology (bom.gov.au), specifically from the Sydney weather station.
+| # | Variable | Description |
+|---|----------|-------------|
+| **Step count data:** |
+| 1 | date | Observation date |
+| 2 | steps | Daily number of steps tracked from her fitness device  |
+| **Weather data:** |
+| 3 | min_temp | Minimum temperature (°C) for the day |
+| 4 | max_temp | Maximum temperature (°C) for the day |
+| 5 | rainfall | Rainfall amount (mm) for the day |
+| 6 | evaporation | Evaporation (mm) for the day [removed - 100% missing] |
+| 7 | sunshine | Hours of bright sunshine [removed - 100% missing] |
+| 8 | wind_gust_dir | Direction of strongest wind gust |
+| 9 | wind_gust_speed | Speed of strongest wind gust (km/h) |
+| 10 | wind_gust_time | Time of strongest wind gust |
+| 11 | temp_9am | Temperature (°C) at 9am |
+| 12 | humidity_9am | Humidity (%) at 9am |
+| 13 | cloud_9am | Cloud cover at 9am [removed - 100% missing] |
+| 14 | wind_dir_9am | Wind direction at 9am |
+| 15 | wind_speed_9am | Wind speed (km/h) at 9am |
+| 16 | pressure_9am | Atmospheric pressure at 9am [removed - 100% missing] |
+| 17 | temp_3pm | Temperature (°C) at 3pm |
+| 18 | humidity_3pm | Humidity (%) at 3pm |
+| 19 | cloud_3pm | Cloud cover at 3pm [removed - 100% missing] |
+| 20 | wind_dir_3pm | Wind direction at 3pm |
+| 21 | wind_speed_3pm | Wind speed (km/h) at 3pm |
+| 22 | pressure_3pm | Atmospheric pressure at 3pm [removed - 100% missing] |
 
-## Data Collection
-* The dataset combines:
-  * **1. Step count data:** My mom's daily step counts tracked via her fitness device
-  * **2. Weather data:** Temperature, rainfall, humidity, wind speed from Sydney weather station
-* **Initial dataset:** 393 days × 22 variables
-* **Final cleaned dataset**: 360 days × 16 variables (after removing columns with 100% missing values and handling remaining nulls)
+Initial: 393 days × 22 variables
+Cleaned: 360 days × 16 variables 
+* removed 6 columns with 100% missing values: evaporation, sunshine, cloud_9am, pressure_9am, cloud_3pm, pressure_3pm
+* dropped 33 rows with nulls
+  
+## Key Features Created
+| # | Variable | Description |
+|---|----------|-------------|
+| **Temporal Features:** |
+| 1 | day_of_week | name of the day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) |
+| 2 | month | month number (1 to 12) |
+| 3 | season | Australian season: Summer, Autumn, Winter, Spring) |
+| 4 | is_weekend | True if Saturday or Sunday, False if not |
+| **Weather features:** |
+| 5 | comfortable | 1 if weather is ideal for walking (15-25°C, no rain), 0 if not  |
+| 6 | temp_range | How much the temperature changed during the day (max minus min) |
+| 7 | rain_category| Rainfall grouped as No Rain, Light Rain (<5mm), or Heavy Rain (≥5mm) |
+| **Activity metrics:** |
+| 8 | steps_7day_avg | Average daily steps over the past 7 days |
+| 9 | active_day | 1 if daily steps exceed 5,000 (activity goal met), 0 if not |
+| 10 | week | Week number of the year (1-52) |
 
-## EDA
-Key findings from exploratory data analysis:
-* **Average daily steps:** 5,740 (std: 3,138)
-* **Step distribution:** Right-skewed with range from 1,006 to 15,660 steps
-* **Missing values:** 6 columns had 100% missing values (evaporation, sunshine, cloud_9am, pressure_9am, cloud_3pm, pressure_3pm) - removed
-* **Remaining missing values:** rainfall (3), wind_gust_dir (6), wind_gust_speed (6), wind_gust_time (6), wind_dir_9am (21), wind_dir_3pm (5) - rows dropped
-* **Outlier analysis:** No extreme outliers detected using IQR method (2.0 × IQR threshold) in step counts
-* **Distribution patterns:**
-  * **Rainfall:** extremely right-skewed (most days had no rain)
-  * **Steps: **right-skewed but less extreme
-  * **Temperature variables:** approximately normal
-  * **Humidity at 9am:** bimodal distribution
-* **Correlation findings:**
-  * Strongest positive correlation: Temperature at 9am (r=0.199)
-  * Strongest negative correlation: Morning humidity (r=-0.243)
-  * Rainfall showed weak negative correlation (r=-0.102)
+Final dataset with added key features: 360 days × 26 variables 
 
-## Preprocessing and Feature Engineering
-1. Data Cleaning
-   1.1 Dropped 6 columns with 393 missing values (100% null)
-   1.2 Removed rows with remaining missing values (33 rows dropped)
-   1.3 Converted data types
-   1.4 Stripped whitespace from column names
-   1.5 Validated no duplicates remain
-   1.6 Validated no extreme outliers in step counts
-   1.7 Final dataset: 360 rows × 16 columns
-3. Feature Engineering
-   2.1 Temporal Features Created -
-   day_of_week (Monday through Sunday)
-   month - 1-12
-   season - Summer (Dec-Feb), Autumn (Mar-May), Winter (Jun-Aug), Spring (Sep-Nov) based on Australian seasons
-   is_weekend - Boolean flag for Saturday/Sunday
-   week - ISO week number
-   2.2 Weather Features Created
-   comfortable - Binary flag for comfortable walking conditions (15-25°C, no rain)
-    temp_range - Daily temperature variability (max_temp - min_temp)
-    rain_category - Categorical: No Rain, Light Rain (<5mm), Heavy Rain (≥5mm)
-    rainy - Binary flag for any rainfall (>0mm)
-    high_wind - Binary flag for wind gusts > median (31 km/h)
-    high_humidity - Binary flag for morning humidity > 75%
-    warm_season - Binary flag for Spring/Summer
-   2.3 Activity metrics created
-   steps_7day_avg - 7-day rolling average of daily steps
-   active_day - Binary flag for days with >5,000 steps (reaching activity goal)
-   day_number - Days since start of tracking period (for trend analysis)
-    Weekly step totals aggregated by ISO week number
+## Key Findings
+**1. Does weather really affect activity?**
+* **Yes**, **humidity** has the strongest impact (r=-0.243), causing 27% reduction (1,732 fewer steps) on high humidity days (>75%)
+* Warm seasons (Spring/Summer) show 43% more activity than Autumn/Winter (nearly 2,000 extra steps per day)
+* Rain shows a trend toward fewer steps but is not statistically significant
+* Windier days show 16% higher step countss show 16% higher step counts
+  
+**2. Are weekends less active?**
+* **Yes, weekends are less active.** Saturday is the worst day (4,887 steps average)
+* Weekdays average 760 more steps (14.6% increase) compared to weekends
+* Monday is the best day (7,318 steps average)
 
-## Statistical Analysis
-Conducted 12 hypothesis tests to understand what factors actually affect my mom's daily step counts
+**3. How much does temperature and humidity matter?**
+* **Humidity matters most**. There is 27% reduction in activity on high humidity days (>75%)
+* Morning temperature shows positive correlation (r=0.199)
+* When daily temperatures vary by more than 10.3°C, activity increases by 13%
+* Comfortable weather (15-25°C, no rain) leads to more walking
+  
+* **4. Additional finding:**
+* Activity is declining over time (ρ=-0.377, p<0.0001) - significant downward trend over 360 days
+  
+## Code
+See step_count_analysis.ipynb for full analysis including data cleaning, feature engineering, 12 statistical hypothesis tests, and 20 interactive visualisations (time series, correlation heatmaps, 3D plots, violin plots)
 
-## Visualisations
-Created 20 interactive Plotly visualisations to explore the data 
-
-## Analysis Interpretation
-From the statistical analysis and visualizations, here are the key insights about what affects my mom's walking activity:
-
-**What Weather Really Matters:**
-Humidity is the real culprit - it has the strongest impact (r=-0.243). On humid days (>75%), she walks 1,732 fewer steps on average - that's a 27% reduction
-Warm seasons are game-changers - Spring and Summer see 43% more activity than Autumn and Winter (nearly 2,000 extra steps per day)
-Rain? Not as big a deal as I thought - there's a trend showing fewer steps on rainy days but it's not statistically significant
-Wind is surprising - She actually walks 16% MORE on windier days, not less!
-
-**Daily and Weekly Patterns:**
-Weekdays work better - She consistently walks 760 more steps on weekdays (14.6% increase) compared to weekends
-Mondays are peak days - highest average at 7,318 steps, possibly due to weekly routine/motivation
-Weekends lag behind - especially Saturdays (4,887 steps), suggesting less structured activity
-Temperature swings help - Days with bigger temperature differences (>10.3°C range) see 13% more activity
-
-**Seasonal Insights:**
-November is the golden month - 7,429 steps average (her best performance)
-June is the struggle month - Only 4,405 steps average (68% lower than November!)
-Active day success rates vary dramatically:
-
-Summer: 66.7% of days hit 5,000+ steps
-Winter: Only 35.9% of days reach the goal
-Spring: 60.3% success rate
-Autumn: 41.5% success rate
-
-**The Concerning Trend:**
-Activity is declining over time - Spearman correlation of ρ=-0.377 (p<0.0001)
-This significant downward trend over 360 days suggests she may need renewed motivation or a change in routine
-Despite seasonal ups and downs, the overall trajectory is heading down
-
-**Practical Takeaways for My Mom:**
-Focus on improving weekend activity - that's where the biggest opportunity is (760 fewer steps on average)
-Winter months need extra attention - especially June (lowest at 4,405 steps). Indoor walking alternatives or shopping centre walks might help
-High humidity days need a plan - since outdoor walking drops by 27% on humid days, having indoor alternatives ready is important
-Keep up the weekday routine - whatever she's doing on weekdays is working well!
-Address the declining trend - the data shows activity decreasing over time, so we need to implement re-engagement strategies before motivation drops further
-Take advantage of good weather windows - mornings with lower humidity are ideal for longer walks
-
-As with most data problems, the analysis raises new questions: Why are Mondays so successful? What specific activities drive weekday engagement? How can we replicate spring/summer motivation in winter? These would require further investigation and conversations with my mom about her routines!
+## Practical Takeaways
+Looking at a year of my mom's walking data revealed some surprises and gave us a clear action plan.
+**Fix the weekend gap**: Weekends lag by 760 steps. We're planning Saturday morning walks or weekend activities that naturally involve more movement.
+**Prepare for winter**: With June averaging just 4,405 steps, we're lining up indoor alternatives before winter hits: shopping centres, indoor tracks, or home walking videos.
+**Beat the humidity**: A 27% drop on humid days is significant. Now we monitor the forecast and have a backup plan ready when humidity climbs above 75%.
+**Tackle the downward trend**: The data doesn't lie: activity is declining. We need to understand why and implement strategies to reverse it before it gets worse.
+**Go early**: Mornings have lower humidity and better conditions. Shifting walks to earlier in the day could make a real difference.
