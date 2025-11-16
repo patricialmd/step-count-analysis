@@ -8,11 +8,13 @@ My mom, in her 70s, wanted to understand what influences her daily walking patte
 * Are her weekends less active?
 * How much does temperature and humidity matter?
 
-Dataset: 360 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+**Dataset:** 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
 
-Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
+**Programming Language:** Python
 
-Tools: Python, pandas, scipy, plotly, seaborn 
+**Tools:** pandas, scipy, plotly, seaborn 
+
+**Analysis:** 12 statistical hypothesis tests, 20 interactive Plotly visualisations
 
 
 ## Data
@@ -44,9 +46,9 @@ Tools: Python, pandas, scipy, plotly, seaborn
 | 21 | wind_speed_3pm | Wind speed (km/h) at 3pm |
 | 22 | pressure_3pm | Atmospheric pressure at 3pm [removed - 100% missing] |
 
-Initial: 393 days × 22 variables
+**Initial dataset:** 393 days × 22 variables
 
-Cleaned: 360 days × 16 variables 
+**Cleaned dataset:** 360 days × 16 variables 
 * removed 6 columns with 100% missing values: evaporation, sunshine, cloud_9am, pressure_9am, cloud_3pm, pressure_3pm
 * dropped 33 rows with nulls
 
@@ -68,7 +70,7 @@ Cleaned: 360 days × 16 variables
 | 9 | active_day | 1 if daily steps exceed 5,000 (activity goal met), 0 if not |
 | 10 | week | Week number of the year (1-52) |
 
-Final dataset with added key features: 360 days × 26 variables 
+**Final dataset with added key features:** 360 days × 26 variables 
 
 
 ## Key Findings
@@ -89,7 +91,7 @@ Final dataset with added key features: 360 days × 26 variables
 * When daily temperatures vary by more than 10.3°C, activity increases by 13%
 * Comfortable weather (15-25°C, no rain) leads to more walking
   
-* **4. Additional finding:**
+**4. Additional finding:**
 * Activity is declining over time (ρ=-0.377, p<0.0001) - significant downward trend over 360 days
 
   
