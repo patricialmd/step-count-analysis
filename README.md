@@ -75,20 +75,23 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 **1. Does weather really affect her activity?**
 * Yes, humidity has the strongest impact (r=-0.243, p<0.0001). High humidity days (>75% measured at 9am) result in 27% less activity (1,732 fewer steps)
 * Warm seasons matter significantly. Spring/Summer show 43% more activity than Autumn/Winter (1,998 extra steps per day)
-  
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/scatterplot.png)
+   
 **2. Are her weekends less active?**
 * Yes, her weekends are significantly less active (p=0.0367). Weekdays average 760 more steps (14.6% increase)
 * Saturday is the worst day at 4,887 steps average
 * Monday is the best day at 7,318 steps average which is 50% more than Saturday
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/linechart.png)
 
 **3. How much does temperature and humidity matter?**
 * Temperature has a small positive effect on her activity. Warmer mornings is equal to more steps.
 * High humidity or rainy days reduce her steps noticeably.
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/heatmap.png)
   
 **4. Critical trend:**
 * Yes, her step count is declining. Over the year, her daily steps have dropped from around 8,000 in the first few months to about 4,800 in the last few months, showing a clear downward trend.
 * I have prepared an action plan for her in the Key Insights section.
-
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/trendline.png)
   
 ## Code
 See step_count_analysis_python.ipynb for full analysis including data cleaning, feature engineering, statistical hypothesis tests, and visualisations.
