@@ -1,4 +1,6 @@
 # Mom's Step Count Analysis
+![](https://github.com/patricialmd/step-count-analysis/blob/main/step_count_banner.jpg)
+
 ## About
 My mom is a senior citizen and I wanted to use her step count data to understand her daily activity patterns. So I combined her Fitbit step count data with Sydney weather data from the Australian Government Bureau of Meteorology to answer these questions:
 * Does weather really affect her activity?
@@ -71,30 +73,20 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 ## Key Findings
 **1. Does weather really affect her activity?**
 * Yes, humidity has the strongest impact (r=-0.243, p<0.0001). High humidity days (>75% measured at 9am) result in 27% less activity (1,732 fewer steps)
-* Warm seasons matter significantly (p<0.0001). Spring/Summer show 43% more activity than Autumn/Winter (1,998 extra steps per day)
-* Rain shows a trend but not statistically significant (p=0.1099). Dry days average 538 more steps (9.9% increase)
-* Wind is surprising (p=0.0117). Days with wind gusts >31 km/h show 16% higher step counts (832 more steps) - wind doesn't deter walking
-* Temperature variability helps (p=0.0189). Days with larger temperature swings (>10.3°C between min and max temp) see 13% more activity (775 extra steps)
+* Warm seasons matter significantly. Spring/Summer show 43% more activity than Autumn/Winter (1,998 extra steps per day)
   
 **2. Are her weekends less active?**
 * Yes, her weekends are significantly less active (p=0.0367). Weekdays average 760 more steps (14.6% increase)
 * Saturday is the worst day at 4,887 steps average
 * Monday is the best day at 7,318 steps average which is 50% more than Saturday
-* Day of week patterns are significant (p=0.0019), which means routine and structure drive activity more than individual choice
 
 **3. How much does temperature and humidity matter?**
-* Humidity matters most of all weather variables (r=-0.243, p<0.0001). High humidity (>75% at 9am) causes 27% reduction in activity
-* Morning temperature shows positive correlation (r=0.199 with temp_9am), suggesting cooler mornings encourage walking
-* Temperature range matters (p=0.0189). Days with >10.3°C variation see 13% more steps
-* "Comfortable" weather doesn't guarantee activity (p=0.0611, not significant). Days with ideal conditions (15-25°C max temp, no rain) surprisingly showed fewer steps than uncomfortable days - suggesting routine matters more than perfect weather
+* Temperature has a small positive effect on her activity. Warmer mornings is equal to more steps.
+* High humidity or rainy days reduce her steps noticeably.
   
-**4. Seasonal and monthly patterns**
-* Active day success varies dramatically by season (p=0.0001): Summer 66.7%, Spring 60.3%, Autumn 41.5%, Winter 35.9% of days reach 5,000+ steps
-* Monthly differences are significant (p<0.0001). November peaks at 7,429 steps while June bottoms out at 4,405 steps - a 68% difference
-* Clear seasonal divide: Oct-Feb average 6,001-7,429 steps vs Mar-Sep average 4,405-5,218 steps
-
-**5. Critical trend:**
-* Activity is declining significantly over time (ρ=-0.377, p<0.0001). Over the 360-day period, there's a consistent downward trend in daily steps requiring urgent intervention
+**4. Critical trend:**
+* Yes, her step count is declining. Over the year, her daily steps have dropped from around 8,000 in the first few months to about 4,800 in the last few months, showing a clear downward trend.
+* I have prepared an action plan for her in the Key Insights section.
 
   
 ## Code
