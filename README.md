@@ -26,21 +26,21 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 | 1 | date | Observation date |
 | 2 | steps | Daily number of steps tracked from her fitness device  |
 | **Weather data:** |
-| 3 | min_temp | Minimum temperature (°C) for the day |
-| 4 | max_temp | Maximum temperature (°C) for the day |
-| 5 | rainfall | Rainfall amount (mm) for the day |
-| 6 | evaporation | Evaporation (mm) for the day [removed - 100% missing] |
+| 3 | min_temp | Minimum temperature (in degrees Celsius) for the day |
+| 4 | max_temp | Maximum temperature (in degrees Celsius) for the day |
+| 5 | rainfall | Rainfall amount (in millimeters) for the day |
+| 6 | evaporation | Evaporation (in millimeters) for the day [removed - 100% missing] |
 | 7 | sunshine | Hours of bright sunshine [removed - 100% missing] |
 | 8 | wind_gust_dir | Direction of strongest wind gust |
 | 9 | wind_gust_speed | Speed of strongest wind gust (km/h) |
 | 10 | wind_gust_time | Time of strongest wind gust |
-| 11 | temp_9am | Temperature (°C) at 9am |
+| 11 | temp_9am | Temperature (in degrees Celsius) at 9am |
 | 12 | humidity_9am | Humidity (%) at 9am |
 | 13 | cloud_9am | Cloud cover at 9am [removed - 100% missing] |
 | 14 | wind_dir_9am | Wind direction at 9am |
 | 15 | wind_speed_9am | Wind speed (km/h) at 9am |
 | 16 | pressure_9am | Atmospheric pressure at 9am [removed - 100% missing] |
-| 17 | temp_3pm | Temperature (°C) at 3pm |
+| 17 | temp_3pm | Temperature (in degrees Celsius) at 3pm |
 | 18 | humidity_3pm | Humidity (%) at 3pm |
 | 19 | cloud_3pm | Cloud cover at 3pm [removed - 100% missing] |
 | 20 | wind_dir_3pm | Wind direction at 3pm |
@@ -75,7 +75,7 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 **1. Does weather really affect her activity?**
 * Yes, humidity has the strongest impact (r=-0.243, p<0.0001). High humidity days (>75% measured at 9am) result in 27% less activity (1,732 fewer steps)
 * Warm seasons matter significantly. Spring/Summer show 43% more activity than Autumn/Winter (1,998 extra steps per day)
-![](https://github.com/patricialmd/step-count-analysis/blob/main/images/scatterplot.png)
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/scatter_plot.png)
    
 **2. Are her weekends less active?**
 * Yes, her weekends are significantly less active (p=0.0367). Weekdays average 760 more steps (14.6% increase)
