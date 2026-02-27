@@ -5,10 +5,10 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 * How much does temperature and humidity matter?
 * Is her activity declining, and what can I do about it?
 
-- **Dataset**: 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
-- **Tools Used**: Google Sheets for merging the datasets and Python for data analysis
-- **Analysis**: statistical hypothesis tests and visualisations
-- **Goal**: to find actionable insights to help keep her active and well as she ages.
+-- **Dataset**: 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+-- **Tools Used**: Google Sheets for merging the datasets and Python for data analysis
+-- **Analysis**: statistical hypothesis tests and visualisations
+-- **Goal**: to find actionable insights to help keep her active and well as she ages.
 
 
 ## Data
