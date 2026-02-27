@@ -15,7 +15,7 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 
 **Analysis** - Statistical hypothesis testing and visualisations
 
-**Goal** - To find actionable insights to help keep her stay active and well as she ages.
+**Goal** - To find actionable insights to help keep her active and well as she ages.
 
 
 ## Data
