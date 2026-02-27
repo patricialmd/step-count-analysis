@@ -110,7 +110,7 @@ See step_count_analysis_python.ipynb for full analysis including data cleaning, 
 By cleaning, analysing, and visualising the 393 rows of my mom's step count data and Sydney's climate data, here is my action plan for my Mom:
 
 **1. FIX THE WEEKEND GAP**
--mWeekends average 760 fewer steps than weekdays (Weekdays = 5,962 steps, Weekends = 5,202 steps, difference 759 steps which is significant)
+- Weekends average 760 fewer steps than weekdays (Weekdays = 5,962 steps, Weekends = 5,202 steps, difference 759 steps which is significant)
 - Plan: Saturday morning walks or weekend activities that naturally involve more movement
 
 **2. PREPARE FOR WINTER**
