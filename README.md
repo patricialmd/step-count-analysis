@@ -1,3 +1,4 @@
+# Mom's Step Count Analysis
 ## About
 My mom is a senior citizen and I wanted to use her step count data to understand her daily activity patterns. So I combined her Fitbit step count data with Sydney weather data from the Australian Government Bureau of Meteorology to answer these questions:
 * Does weather really affect her activity?
@@ -6,17 +7,17 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 * Is her activity declining, and what can I do about it?
 
 ### Dataset 
-393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+-- 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
 
 ### Tools Used 
-**Google Sheets** for merging the datasets 
-**Python** for data analysis
+-- **Google Sheets** for merging the datasets 
+-- **Python** for data analysis
   
 ### Analysis
-Statistical hypothesis testing and visualisations
+-- Statistical hypothesis testing and visualisations
   
-### Goal: 
-To find actionable insights to help keep her stay active and well as she ages.
+### Goal
+-- To find actionable insights to help keep her stay active and well as she ages.
 
 
 ## Data
