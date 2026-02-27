@@ -99,14 +99,14 @@ Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
 
   
 ## Code
-See stepCountAnalysis.ipynb for full analysis including data cleaning, feature engineering, 12 statistical hypothesis tests, and 20 interactive visualisations (time series, correlation heatmaps, 3D plots, violin plots)
+See step_count_analysis_python.ipynb for full analysis including data cleaning, feature engineering, statistical hypothesis tests, and visualisations.
 
 
-## Practical Takeaways
+## Key Insights
 Looking at a year of my mom's walking data revealed some surprises and gave us a clear action plan:
 **Fix the weekend gap**: Weekends lag by 760 steps. We're planning Saturday morning walks or weekend activities that naturally involve more movement.
 
-**Prepare for winter**: With June averaging just 4,405 steps, we're lining up indoor alternatives before winter hits: shopping centres, indoor tracks, or home walking videos.
+**Prepare for winter**: With June averaging just 4,405 steps, we're lining up indoor alternatives before winter hits: shopping centres, home walking, and indoor exercises.
 
 **Beat the humidity**: A 27% drop on humid days is significant. Now we monitor the forecast and have a backup plan ready when humidity climbs above 75%.
 
