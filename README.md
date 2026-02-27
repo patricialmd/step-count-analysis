@@ -117,7 +117,7 @@ By cleaning, analysing, and visualising my mom's step count data and Sydney's cl
 - Plan: Shift walks to earlier in the day when humidity is lower and conditions are better
 
 **5. TACKLE THE DECLINING TREND which is URGENT**
-- Activity has declined significantly over 360 days (ρ=-0.377)
+- Activity has declined significantly over 360 days (p=-0.377)
 - First 3 months average vs last 3 months shows a clear drop
 - Plan: Investigate why and implement re-engagement strategies before it gets worse
 
