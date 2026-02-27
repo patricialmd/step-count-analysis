@@ -1,5 +1,5 @@
 # Mom's Step Count Analysis
-![](https://github.com/patricialmd/step-count-analysis/blob/main/step_count_banner.jpg)
+![](https://github.com/patricialmd/step-count-analysis/blob/main/images/step_count_banner.jpg)
 Photo by [Joshua Miranda](https://www.pexels.com/@joshuamiranda/) via [Pexels](https://www.pexels.com)
 
 ## About
