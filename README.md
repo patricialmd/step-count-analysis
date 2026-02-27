@@ -1,5 +1,6 @@
 # Mom's Step Count Analysis
 ![](https://github.com/patricialmd/step-count-analysis/blob/main/step_count_banner.jpg)
+Photo by [Joshua Miranda](https://www.pexels.com/@joshuamiranda/) via [Pexels](https://www.pexels.com)
 
 ## About
 My mom is a senior citizen and I wanted to use her step count data to understand her daily activity patterns. So I combined her Fitbit step count data with Sydney weather data from the Australian Government Bureau of Meteorology to answer these questions:
@@ -74,8 +75,6 @@ My mom is a senior citizen and I wanted to use her step count data to understand
 **1. Does weather really affect her activity?**
 * Yes, humidity has the strongest impact (r=-0.243, p<0.0001). High humidity days (>75% measured at 9am) result in 27% less activity (1,732 fewer steps)
 * Warm seasons matter significantly. Spring/Summer show 43% more activity than Autumn/Winter (1,998 extra steps per day)
-![](https://github.com/patricialmd/step-count-analysis/blob/main/images/scatterplot.png)
-
   
 **2. Are her weekends less active?**
 * Yes, her weekends are significantly less active (p=0.0367). Weekdays average 760 more steps (14.6% increase)
