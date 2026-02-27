@@ -1,16 +1,14 @@
 ## About
-My mom, in her 70s, wanted to understand what influences her daily walking patterns. I combined her Fitbit data with Sydney weather data to answer these questions: 
+My mom is a senior citizen and I wanted to use her step count data to understand her daily activity patterns. So I combined her Fitbit step count data with Sydney weather data from the Australian Government Bureau of Meteorology to answer these questions:
 * Does weather really affect her activity?
 * Are her weekends less active?
 * How much does temperature and humidity matter?
+* Is her activity declining, and what can I do about it?
 
-Dataset: 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
-
-Programming Language: Python
-
-Libraries: pandas, scipy, plotly, seaborn 
-
-Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
+**Dataset**: 393 days of step count data (Oct 2024 - Oct 2025) merged with weather variables
+**Tools Used**: Google Sheets for merging the datasets and Python for data analysis
+**Analysis**: statistical hypothesis tests and visualisations
+**Goal**: to find actionable insights to help keep her active and well as she ages.
 
 
 ## Data
@@ -52,16 +50,13 @@ Analysis: 12 statistical hypothesis tests, 20 interactive Plotly visualisations
 ## Key Features Created
 | # | Variable | Description |
 |---|----------|-------------|
-| **Temporal Features:** |
 | 1 | day_of_week | name of the day (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) |
 | 2 | month | month number (1 to 12) |
 | 3 | season | Australian season: Summer, Autumn, Winter, Spring) |
 | 4 | is_weekend | True if Saturday or Sunday, False if not |
-| **Weather features:** |
 | 5 | comfortable | 1 if weather is ideal for walking (15-25°C, no rain), 0 if not  |
 | 6 | temp_range | How much the temperature changed during the day (max minus min) |
 | 7 | rain_category| Rainfall grouped as No Rain, Light Rain (<5mm), or Heavy Rain (≥5mm) |
-| **Activity metrics:** |
 | 8 | steps_7day_avg | Average daily steps over the past 7 days |
 | 9 | active_day | 1 if daily steps exceed 5,000 (activity goal met), 0 if not |
 | 10 | week | Week number of the year (1-52) |
@@ -103,13 +98,30 @@ See step_count_analysis_python.ipynb for full analysis including data cleaning, 
 
 
 ## Key Insights
-Looking at a year of my mom's walking data revealed some surprises and gave us a clear action plan:
-**Fix the weekend gap**: Weekends lag by 760 steps. We're planning Saturday morning walks or weekend activities that naturally involve more movement.
+By cleaning, analysing, and visualising the 393 rows of my mom's step count data and Sydney's climate data, here is my action plan for my Mom:
 
-**Prepare for winter**: With June averaging just 4,405 steps, we're lining up indoor alternatives before winter hits: shopping centres, home walking, and indoor exercises.
+**1. FIX THE WEEKEND GAP**
+-mWeekends average 760 fewer steps than weekdays (Weekdays = 5,962 steps, Weekends = 5,202 steps, difference 759 steps which is significant)
+- Plan: Saturday morning walks or weekend activities that naturally involve more movement
 
-**Beat the humidity**: A 27% drop on humid days is significant. Now we monitor the forecast and have a backup plan ready when humidity climbs above 75%.
+**2. PREPARE FOR WINTER**
+- Monthly averages showed June = 4,405 steps (lowest) and November = 7,429 steps (highest), significant ANOVA.
+- Plan: Line up indoor alternatives before winter hits like shopping centres, home walking, or indoor exercise videos.
 
-**Tackle the downward trend**: The data doesn't lie: activity is declining. We need to understand why and implement strategies to reverse it before it gets worse.
+**3. BEAT THE HUMIDITY**
+- On high humidity days (>75%), she takes about 27% fewer steps.
+- Plan: Check the weather daily and have a backup indoor plan ready when humidity climbs above 75%
 
-**Go early**: Mornings have lower humidity and better conditions. Shifting walks to earlier in the day could make a real difference.
+**4. GO EARLY**
+- Morning temperature shows positive correlation (r=0.199)
+- Plan: Shift walks to earlier in the day when humidity is lower and conditions are better
+
+**5. TACKLE THE DECLINING TREND which is URGENT**
+- Activity has declined significantly over 360 days (ρ=-0.377)
+- First 3 months average vs last 3 months shows a clear drop
+- Plan: Investigate why and implement re-engagement strategies before it gets worse
+
+
+## Conclusion
+In summary, my mom’s activity varies by season, day of the week, and weather conditions, and it is gradually declining. Implementing the suggested action plan can help maintain or increase her daily steps and overall activity levels.
+
